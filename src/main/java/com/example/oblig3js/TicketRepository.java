@@ -30,6 +30,7 @@ public class TicketRepository {
     }
     public void changeOne(Ticket inTicket){
         String sql = "UPDATE Ticket SET movie=?, number=?, firstName=?, lastName=?, phoneNb=?, email=? WHERE id=?";
+        db.update(sql, inTicket.getMovie(),inTicket.getNumber(),inTicket.getFirstName(),inTicket.getLastName(),inTicket.getPhoneNb(),inTicket.getEmail(),inTicket.getId());
     }
 
     public void deleteOne(int id){
