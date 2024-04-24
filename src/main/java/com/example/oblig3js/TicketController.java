@@ -1,5 +1,6 @@
 package com.example.oblig3js;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,11 +10,12 @@ import java.util.List;
 
 @RestController
 public class TicketController {
-    private final List<Ticket> tickets = new ArrayList<>();
+@Autowired
+private TicketRepository rep;
 
     @PostMapping("/saveTicket")
     public void saveTickets(Ticket inTicket){
-        tickets.add(inTicket);
+        rep.saveTicket(inTicket);
     }
 
     @GetMapping("/getMovie")
