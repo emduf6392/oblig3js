@@ -22,9 +22,14 @@ public class TicketRepository {
         return db.query(sql, new BeanPropertyRowMapper(Ticket.class));
     }
     public Ticket getOneTicket(int id) {
+        Object [] param = new Object[0];
+        param[0] = id;
         String sql = "SELECT FROM Ticket WHERE id=?";
-        Ticket oneTicket = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Ticket.class),id);
+        Ticket oneTicket = db.queryForObject(sql, param, BeanPropertyRowMapper.newInstance(Ticket.class));
         return oneTicket;
+    }
+    public void changeOne(Ticket inTicket){
+        String sql = "UPDATE Ticket SET movie=?, number=?, firstName=?, lastName=?, phoneNb=?, email=? WHERE id=?";
     }
 
     public void deleteOne(int id){
