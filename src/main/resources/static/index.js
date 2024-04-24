@@ -102,10 +102,11 @@ function getTicket(){
 }
 function formatTicket(tickets){
     let out = "<table class='table table-striped'><tr>" +
-        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>E-post</th><th></th></tr>"
+        "<th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>E-post</th><th></th><th></th></tr>"
     for (const ticket of tickets){
         out += "<tr><td>"+ticket.movie+"</td><td>"+ticket.number+"</td><td>"+ticket.firstName+"</td>" +
         "<td>"+ticket.lastName+"</td><td>"+ticket.phoneNb+"</td><td>"+ticket.email+"</td>" +
+            "<td><a class='btn btn-primary' href='changes.html?id="+ticket.id+"'>Endre</a></td>"+
             "<td><button class='btn btn-danger' onclick='deleteOne("+ticket.id+")'>Slett</button></td></tr>"
     }
     out += "</table>"
